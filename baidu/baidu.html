@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度舆情</title>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/touch.js"></script>
+    <link rel="stylesheet" href="css/less.css">
+    <link rel="stylesheet" href="css/baidu.css">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="#" class="logo"></a>
+        <a href="">首页</a>
+        <a href="">产品介绍</a>
+        <a href="">用户板</a>
+        <a href="">手机客户端
+            <i></i>
+        </a>
+        <a href="">百度司南</a>
+        <a href="">联系我们</a>
+        <a href="" style="color: #FFDA28">申请试用</a>
+    </nav>
+</header>
+<div id="fullpage">
+    <section>
+        <div class="text01"></div>
+        <div class="plane"></div>
+        <div class="bottom01">
+            <div class="botimg"></div>
+            <div class="botimg"></div>
+            <div class="botimg"></div>
+            <div class="botimg"></div>
+        </div>
+        <div class="cloud"></div>
+        <div class="cloud1"></div>
+        <form action="#" class="myform">
+            <div class="formtop">
+                <div class="userbox">
+                    <span></span>
+                    <input type="text"placeholder="用户名"name=""tabindex="1"autocomplete="off" maxlength="100">
+                </div>
+                <div class="passbox">
+                    <span></span>
+                    <input type="password"placeholder="密码"name=""tabindex="1">
+                </div>
+                <div class="token">
+                    <input type="text"placeholder="验证码"tabindex="1">
+                    <div class="yzimg"></div>
+                    <a href="javascript:;">换一张</a>
+                </div>
+            </div>
+            <div class="login">
+                <input type="button"value="登录" id="login">
+            </div>
+            <div class="other">
+                <div class="f1">
+                    <span></span>
+                    <a href="#">安全控件常见问题</a>
+                </div>
+                <a href="#" id="pass">忘记密码</a>
+            </div>
+        </form>
+        <a href="javascript:;" class="btn-arrow"></a>
+    </section>
+    <section>
+        <div class="rotate"></div>
+        <div class="tree"></div>
+        <div class="text02">
+            <h1>数据收集与处理</h1>
+            <h2>15年专业数据收集与语义分析技术积累</h2>
+            <h2>卓越极致，不断攀登</h2>
+        </div>
+        <div class="bottom02">
+            <div class="squery"></div>
+            <div class="squery"></div>
+            <div class="squery"></div>
+            <div class="squery"></div>
+            <div class="squery"></div>
+        </div>
+        <a href="javascript:;" class="btn-arrow"></a>
+    </section>
+    <section>
+        <div class="tree tree3"></div>
+        <div class="rotate rotate33"></div>
+        <div class="text02">
+            <h1>舆情分析逻辑与架构</h1>
+            <h2>声量诊断、传播分析、情感提炼、受众画像</h2>
+            <h2>有方法论，更有智慧</h2>
+        </div>
+        <div class="bottom03">
+            <div class="squery3"></div>
+            <div class="squery3"></div>
+            <div class="squery3"></div>
+            <div class="squery3"></div>
+            <div class="squery3"></div>
+        </div>
+        <a href="javascript:;" class="btn-arrow"></a>
+        <div class="botimg3"></div>
+    </section>
+    <section>
+        <div class="ssimg"></div>
+        <div class="rotate rotate44"></div>
+        <div class="text02">
+            <h1>专业数据可视化</h1>
+            <h2>非凡的数据洞悉和可视化能力</h2>
+            <h2>精研数据，惊艳所见</h2>
+        </div>
+        <div class="circle"></div>
+        <div class="bot4">© 2014 Baidu<a href="javascript:;">使用百度前必读</a></div>
+    </section>
+    <ul class="btn">
+        <li class="selected"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+<script>
+        var h=$(window).height();
+        var num=0;
+        var flag=true;
+        var full=document.getElementById("fullpage");
+        var btn=document.getElementsByClassName("btn")[0];
+        var button=document.getElementsByClassName("btn-arrow");
+        var lis=btn.getElementsByTagName("li");
+        for(var i=0;i<lis.length;i++){
+
+                lis[i].index = i;
+                lis[i].onclick = function () {
+                    for(var j=0;j<lis.length;j++){
+                        lis[j].className="";
+                    }
+                    this.className="selected"
+                  full.style.marginTop=-(this.index*h)+"px";
+                  full.style.transition= "margin 1s ease"
+                }
+        }
+
+
+
+
+
+        touch.on("body","swipeup","#fullpage",function(){
+            if(!flag){
+                return;
+            }
+            num++;
+            if(num==$("section").length){
+                num=$("section").length-1;
+                return;
+            }
+            $("#fullpage").css({
+                marginTop:-num*h
+            })
+            $("#fullpage")[0].addEventListener("webkitTransitionEnd",function() {
+                flag=true;
+            })
+            flag=false;
+        })
+        touch.on("body","swipedown","#fullpage",function(){
+            if(!flag){
+                return;
+            }
+            num--;
+            if(num==-1){
+                num=0;
+                return;
+            }
+            $("#fullpage").css({
+                marginTop:-num*h
+            })
+            $("#fullpage")[0].addEventListener("webkitTransitionEnd",function() {
+                flag=true;
+            })
+            flag=false;
+        })
+
+</script>
+</html>
