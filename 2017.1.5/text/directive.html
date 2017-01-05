@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="javascripts/angular/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="myapp">
+<!--组件   react->组件-->
+    <div abc>
+
+    </div>
+<hr>
+<div abc>
+
+</div>
+<hr>
+<div abc>
+
+</div>
+<hr>
+<div abc>
+
+</div>
+<hr>
+</body>
+<script>
+//    自定义组件
+//angular.module().config().run().controller().filter().directive().factory()
+    angular.module("myapp",[])
+            .directive("abc",function(){
+                return {
+                    restrict:"ECMA",//元素 类名 注释 属性
+                    templateUrl:"../../../angular/demo.html",
+//                    template:"字符串",
+//                    replace:true
+                    transclude:true,
+                    scope:{},
+                    //true,"@",false,&,=
+                    link:function($scope,b,c){
+                        //这个字段可以使指令独立，不受外部控制器的影响，通过link函数定义自己的控制器，控制器可以嵌套，数据就近访问
+                        $scope.data=[
+                            {name:'111',
+                                son:[
+                                    {name:"1-1"},
+                                    {name:"1-2"},
+                                    {name:"1-3"}
+                                ]
+                            },
+                        {name:'111',
+                                son:[
+                            {name:"1-1"},
+                            {name:"1-2"},
+                            {name:"1-3"}
+                        ]
+                        },
+                            {name:'111',
+                                son:[
+                                    {name:"1-1"},
+                                    {name:"1-2"},
+                                    {name:"1-3"}
+                                ]
+                            },
+                            {name:'111',
+                                son:[
+                                    {name:"1-1"},
+                                    {name:"1-2"},
+                                    {name:"1-3"}
+                                ]
+                            }
+                        ]
+                        $scope.a=0;
+                        $scope.change=function(index){
+                            $scope.a=index
+                        }
+                    }
+
+                }
+            })
+</script>
+</html>

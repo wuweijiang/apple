@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/javascripts/angular/angular.min.js"></script>
+    <script src="../public/javascripts/angular-route/angular-route.js"></script>
+    <script src="../public/javascripts/angular-animate/angular-animate.js"></script>
+    <script src="ctrls.js"></script>
+    <script src="sevices.js"></script>
+    <script src="app.js"></script>
+
+    <style>
+        .view-animate {
+            padding:10px;
+        }
+        .view-animate.ng-enter, .view-animate.ng-leave {
+            transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s;
+            display:block;
+            width:100%;
+            border-left:1px solid black;
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            padding:10px;
+        }
+
+        .view-animate.ng-enter {
+            left:100%;
+        }
+        .view-animate.ng-enter.ng-enter-active {
+            left:0;
+        }
+        .view-animate.ng-leave.ng-leave-active {
+            left:-100%;
+        }
+    </style>
+</head>
+<body ng-app="myapp">
+
+<div ng-view class="view-animate">
+
+</div>
+
+</body>
+</html>
